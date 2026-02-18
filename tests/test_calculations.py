@@ -1,6 +1,7 @@
 # Tests for Calculation and Factory classes.
 
 import pytest
+from app.calculation.calculation import Calculation
 from app.calculation.calculation_factory import CalculationFactory
 
 
