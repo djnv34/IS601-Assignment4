@@ -1,13 +1,10 @@
-import pytest
-from calculator.calculator import Calculator
+# Tests for Calculator class.
+
+from app.calculator.calculator import Calculator
 
 
-def test_valid_operation():
+def test_perform_calculation():
     calc = Calculator()
-    assert calc.calculate("add", 2, 3) == 5
-
-
-def test_invalid_operation():
-    calc = Calculator()
-    with pytest.raises(ValueError):
-        calc.calculate("power", 2, 3)
+    result = calc.perform_calculation(2, 3, "multiply")
+    assert result == 6
+    assert len(calc.get_history()) == 1

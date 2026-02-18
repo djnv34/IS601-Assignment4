@@ -1,4 +1,4 @@
-from calculator.calculator import Calculator
+from app.calculator.calculator import Calculator
 
 
 def main():
@@ -22,7 +22,7 @@ def main():
         try:
             a = float(input("Enter first number: "))
             b = float(input("Enter second number: "))
-            result = calc.calculate(operation, a, b)
+            result = calc.perform_calculation(a, b, operation)
             print("___________________________________________________")
             print(f"Result: {result}")
         except ValueError as e:

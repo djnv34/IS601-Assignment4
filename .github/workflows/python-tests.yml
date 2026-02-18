@@ -1,29 +1,32 @@
-name: Python Tests
+name: Python application
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ main ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ main ]
 
 jobs:
-  test:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+    - uses: actions/checkout@v2
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.9'
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
 
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install pytest pytest-cov
 
-      - name: Run tests with coverage
-        run: |
-          PYTHONPATH=. pytest --cov=calculator --cov-report=term-missing --cov-fail-under=100
+    - name: Run tests with coverage
+      run: |
+        pytest
+
+    - name: Check coverage
+      run: |
+        coverage report --fail-under=100
