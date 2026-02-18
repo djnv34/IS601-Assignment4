@@ -22,3 +22,15 @@ def test_invalid_operation():
     with pytest.raises(ValueError):
         calc.execute()
 
+
+def test_invalid_operation_execute():
+    calc = Calculation(1, 2, "invalid")
+    with pytest.raises(ValueError):
+        calc.execute()
+
+
+def test_division_by_zero():
+    calc = CalculationFactory.create_calculation(10, 0, "divide")
+    with pytest.raises(ValueError):
+        calc.execute()
+
