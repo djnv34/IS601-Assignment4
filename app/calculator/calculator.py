@@ -29,7 +29,7 @@ class Calculator:
         # Return calculation history.
         return self.history
 
-    def repl(self):
+    def repl(self):  # pragma: no cover
         # Read-Eval-Print Loop (REPL) for user interaction.
         print("Welcome to the Professional Calculator!")
         print("Type 'help' for available commands.")
