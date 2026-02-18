@@ -20,3 +20,8 @@ def test_invalid_operation():
     calc = CalculationFactory.create_calculation(1, 2, "invalid")
     with pytest.raises(ValueError):
         calc.execute()
+
+def test_invalid_operation_in_constructor():
+    with pytest.raises(ValueError):
+        Calculation(1, 2, "invalid")
+

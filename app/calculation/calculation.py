@@ -31,7 +31,7 @@ class Calculation:
             elif self.operation == "divide":
                 return divideOperator(self.a, self.b)
             else:
-                raise ValueError("Invalid operation.") # pragma: no cover
+                raise ValueError("Invalid operation.") 
         except Exception:
             # Re-raise exception to allow higher-level handling
             raise
